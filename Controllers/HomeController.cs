@@ -21,5 +21,10 @@ namespace Project_1.Controllers
         {
             return View();
         }
+
+        public IActionResult AddForm()
+        {
+            return View();
+        }
     }
 }
