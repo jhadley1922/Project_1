@@ -13,35 +13,38 @@
 <div>
     <form method="post">
         <label asp-for="TaskName">Task:</label>
-        <input asp-for="TaskName"/><br/>
+        <input asp-for="TaskName" class="boxwidth"/><br />
 
         <label asp-for="DueDate">Due Date:</label>
-        <input asp-for="DueDate"/><br/>
+        <input asp-for="DueDate" class="boxwidth"/><br />
 
         <label asp-for="Quadrant">Quadrant Number:</label>
-        <input asp-for="Quadrant"/><br/>
+        <select asp-for="Quadrant" class="boxwidth">
+            <option value="">Select an Option</option>
+            <option value="1">Urgent/Important</option>
+            <option value="2">Urgent/Not Important</option>
+            <option value="3">Not Urgent/Important</option>
+            <option value="4">R</option>
+        </select><br />
 
-        <label>Category:</label>
-        <select>
+        <label asp-for="CategoryId">Category:</label>
+        <select asp-for="CategoryId" class="boxwidth">
             <option value="">Select a Category</option>
             @foreach (Category category_item in ViewBag.Categories)
             {
                 <option value="@category_item.CategoryId">@category_item.CategoryName</option>
             }
-            @*<option>Home</option>
-            <option>School</option>
-            <option>Work</option>
-            <option>Church</option>*@
-        </select><br/>
+
+        </select><br />
 
         <label asp-for="Completed">Completed?</label>
-        <select asp-for="Completed">
+        <select asp-for="Completed" class="boxwidth">
             <option value=""></option>
             <option value="true">Yes</option>
             <option value="false">No</option>
-        </select><br/>
+        </select><br />
 
-        <button type="submit">Add Task</button>
+        <button type="submit" class="boxwidth">Add Task</button>
 
         @*Displays Validation Requirements*@
         <div asp-validation-summary="All"></div>
