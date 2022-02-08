@@ -101,7 +101,11 @@ nav li {
 
 nav a {
     text-decoration: none;
-    color: #0d47a1
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #00008B
 }
 
 /*Task form styles*/
@@ -114,4 +118,19 @@ label {
 button {
     margin-left: 200px;
     width: 150px;
+}
+
+
+.boxwidth{
+    width: 175px;
+}
+
+
+/*Shared Layout Styles*/
+h2 {
+    color: #00008B;
+}
+
+body {
+    background-color:ghostwhite;
 }

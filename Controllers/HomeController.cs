@@ -21,7 +21,12 @@ namespace Project_1.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            // pulls in data to display Tasks and Categories
+            var tasks = Context.Tasks
+                .Include(x => x.Category)
+                .ToList();
+
+            return View(tasks);
         }
 
         [HttpGet]
@@ -40,13 +45,13 @@ namespace Project_1.Controllers
                 Context.Add(tk);
                 Context.SaveChanges();
 
-                return View();
+                return RedirectToAction("Index");
             }
             else // if invalid
             {
                 ViewBag.Categories = Context.Categories.ToList();
 
-                return View();
+                return RedirectToAction("TaskForm", tk);
             }
         }
 
@@ -55,9 +60,10 @@ namespace Project_1.Controllers
         {
             ViewBag.Categories = Context.Categories.ToList();
 
+            // Get the TaskId of the selected Task from the database
             var task = Context.Tasks.Single(x => x.TaskId == TaskId);
 
-            return View("Index", task);
+            return RedirectToAction("TaskForm", task);
         }
 
         [HttpPost]
@@ -74,17 +80,9 @@ namespace Project_1.Controllers
             {
                 ViewBag.Categories = Context.Categories.ToList();
 
-                return View("Index", t);
+                return RedirectToAction("TaskForm", t);
             }
 
-        }
-
-        [HttpGet]
-        public IActionResult Delete(int TaskId)
-        {
-            var task = Context.Tasks.Single(x => x.TaskId == TaskId);
-
-            return View(task);
         }
 
         [HttpPost]

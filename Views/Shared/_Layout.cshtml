@@ -1,18 +1,23 @@
 ﻿<!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
+
+    <!--Link to bootstrap and css files-->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="icon" href="https://www.pinclipart.com/picdir/middle/523-5232109_check-mark-computer-icons-clip-art-green-checkmark.png"/>
 </head>
-<body>
-    <header>
-        @*<h1>@ViewData["Header"]</h1>*@
 
+<body>
+
+    <header>
         <div>
+            <!--Navbar-->
             <nav>
                 <h2>@ViewData["Header"]</h2>
                 <ul>
@@ -21,48 +26,25 @@
                 </ul>
             </nav>
         </div>
-        
-
-
-        @*<nav class="myNav">
-
-            <h1>TITLE HERE</h1>
-            <ul>
-                <li><a class="navbar-brand" asp-controller="Home" asp-action="Index">Home Page</a></li>
-                <li><a class="navbar-brand" asp-controller="Home" asp-action="TaskForm">Add a Task</a></li>
-            </ul>
-
-        </nav>*@
-
-        @*<nav class="navbar navbar-expand-lg justify-content-center border-bottom mb-3">
-
-            <h1>TITLE HERE</h1>
-            <ul>
-                <li><a class="navbar-brand" asp-controller="Home" asp-action="Index">Home Page</a></li>
-                <li><a class="navbar-brand" asp-controller="Home" asp-action="TaskForm">Add a Task</a></li>
-            </ul>
-
-        </nav>*@
-
-        @*<h1 class="text-center">Header Here</h1>*@
-
     </header>
 
     <div class="container">
         @RenderBody()
     </div>
 
+    <!--Footer-->
     <footer class="footer blockquote-footer text-center">
         <p>&copy; Jake Hadley, Thomas Lund, Cade Jorgensen, Sierra Griffin</p>
-        @*<p>Group 3-8</p>*@
     </footer>
 
-
+    <!--Link to bootstrap-->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
+
 </body>
+
 </html>
 
 
