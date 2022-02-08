@@ -1,8 +1,55 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "To-Do Matrix";
+    ViewData["Header"] = ViewData["Title"];
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core hello again</a>.</p>
+<br />
+
+@*Title for the grid*@
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10 border text-center"><h3>Stephen Covey's Time Management Matrix</h3></div>
+    <div class="col-1"></div>
+</div>
+
+@*Header row*@
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-2 border-bottom border-right border-left"></div>
+    <div class="col-4 border-bottom border-right text-center"><h4>Urgent</h4></div>
+    <div class="col-4 border-bottom border-right text-center"><h4>Not Urgent</h4></div>
+    <div class="col-1"></div>
+</div>
+
+
+@*Data Boxes*@ 
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-2 border-bottom border-left border-right text-right"><h4>Important</h4></div>
+    <div class="col-4 border-bottom border-right text-md-center font-weight-bold">
+        Quadrant 1
+        <table>&nbsp;</table>
+        <br /><br />
+    </div>
+    <div class="col-4 border-bottom border-right text-md-center font-weight-bold">
+        Quadrant 2
+        <table>&nbsp;</table>
+        <br />
+    </div>
+    <div class="col-1"></div>
+</div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-2 border-bottom border-left border-right text-right"><h4>Not Important</h4></div>
+    <div class="col-4 border-bottom border-right text-md-center font-weight-bold">
+        Quadrant 3
+        <table>&nbsp;</table>
+        <br /><br /><br />
+    </div>
+    <div class="col-4 border-bottom border-right text-md-center font-weight-bold">
+        Quadrant 4
+        <table>&nbsp;</table>
+        <br /><br /><br />
+    </div>
+    <div class="col-1"></div>
 </div>
