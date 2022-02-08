@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Ttitle"] = "Task Form";
+}
+
+@*Form for user to fill out
+<div>
+    <form method="post">
+        <label asp-for="">Task:</label>
+        <input asp-for=""/><br/>
+
+        <label>Due Date:</label>
+        <input /><br/>
+
+        <label>Quadrant Number:</label>
+        <input /><br/>
+
+        <label>Category:</label>
+        <select>
+            <option>Select a Category</option>
+            <option>Home</option>
+            <option>School</option>
+            <option>Work</option>
+            <option>Church</option>
+        </select><br/>
+
+        <label>Completed?</label>
+        <select>
+            <option></option>
+            <option>Yes</option>
+            <option>No</option>
+        </select><br/>
+
+        <button type="submit">Add Task</button>
+
+        Displays Validation Requirements
+        <div asp-validation-summary="All"></div>
+    </form>
+</div>*@
