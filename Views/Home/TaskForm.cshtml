@@ -1,39 +1,49 @@
 ﻿
 @{
     ViewData["Title"] = "Task Form";
+    ViewData["Header"] = "Add a Task";
 }
 
-@*Form for user to fill out
+
+@model Project_1.Models.Task
+
+@*Form for user to fill out*@
+
+<br/>
 <div>
     <form method="post">
-        <label asp-for="">Task:</label>
-        <input asp-for=""/><br/>
+        <label asp-for="TaskName">Task:</label>
+        <input asp-for="TaskName"/><br/>
 
-        <label>Due Date:</label>
-        <input /><br/>
+        <label asp-for="DueDate">Due Date:</label>
+        <input asp-for="DueDate"/><br/>
 
-        <label>Quadrant Number:</label>
-        <input /><br/>
+        <label asp-for="Quadrant">Quadrant Number:</label>
+        <input asp-for="Quadrant"/><br/>
 
         <label>Category:</label>
         <select>
-            <option>Select a Category</option>
-            <option>Home</option>
+            <option value="">Select a Category</option>
+            @foreach (Category category_item in ViewBag.Categories)
+            {
+                <option value="@category_item.CategoryId">@category_item.CategoryName</option>
+            }
+            @*<option>Home</option>
             <option>School</option>
             <option>Work</option>
-            <option>Church</option>
+            <option>Church</option>*@
         </select><br/>
 
-        <label>Completed?</label>
-        <select>
-            <option></option>
-            <option>Yes</option>
-            <option>No</option>
+        <label asp-for="Completed">Completed?</label>
+        <select asp-for="Completed">
+            <option value=""></option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
         </select><br/>
 
         <button type="submit">Add Task</button>
 
-        Displays Validation Requirements
+        @*Displays Validation Requirements*@
         <div asp-validation-summary="All"></div>
     </form>
-</div>*@
+</div>
