@@ -44,13 +44,13 @@ namespace Project_1.Controllers
                 Context.Add(tk);
                 Context.SaveChanges();
 
-                return View("Index");
+                return RedirectToAction("Index");
             }
             else // if invalid
             {
                 ViewBag.Categories = Context.Categories.ToList();
 
-                return View("TaskForm", tk);
+                return RedirectToAction("TaskForm", tk);
             }
         }
 
@@ -61,7 +61,7 @@ namespace Project_1.Controllers
 
             var task = Context.Tasks.Single(x => x.TaskId == TaskId);
 
-            return View("Index", task);
+            return RedirectToAction("TaskForm", task);
         }
 
         [HttpPost]
@@ -78,17 +78,9 @@ namespace Project_1.Controllers
             {
                 ViewBag.Categories = Context.Categories.ToList();
 
-                return View("Index", t);
+                return RedirectToAction("TaskForm", t);
             }
 
-        }
-
-        [HttpGet]
-        public IActionResult Delete(int TaskId)
-        {
-            var task = Context.Tasks.Single(x => x.TaskId == TaskId);
-
-            return View(task);
         }
 
         [HttpPost]
