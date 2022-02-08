@@ -49,5 +49,34 @@ namespace Project_1.Controllers
                 return View();
             }
         }
+
+        [HttpGet]
+        public IActionResult Edit(int TaskId)
+        {
+            ViewBag.Categories = Context.Categories.ToList();
+
+            var task = Context.Tasks.Single(x => x.TaskId == TaskId);
+
+            return View("Index", task);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Models.Task t)
+        {
+            if (ModelState.IsValid)
+            {
+                Context.Update(t);
+                Context.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            else // if invalid
+            {
+                ViewBag.Categories = Context.Categories.ToList();
+
+                return View("Index", t);
+            }
+
+        }
     }
 }
