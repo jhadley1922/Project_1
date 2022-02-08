@@ -40,13 +40,13 @@ namespace Project_1.Controllers
                 Context.Add(tk);
                 Context.SaveChanges();
 
-                return View();
+                return View("Index");
             }
             else // if invalid
             {
                 ViewBag.Categories = Context.Categories.ToList();
 
-                return View();
+                return View("TaskForm", tk);
             }
         }
 
