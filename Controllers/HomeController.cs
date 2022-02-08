@@ -78,5 +78,22 @@ namespace Project_1.Controllers
             }
 
         }
+
+        [HttpGet]
+        public IActionResult Delete(int TaskId)
+        {
+            var task = Context.Tasks.Single(x => x.TaskId == TaskId);
+
+            return View(task);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Models.Task t)
+        {
+            Context.Tasks.Remove(t);
+            Context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }
