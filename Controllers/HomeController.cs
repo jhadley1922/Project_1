@@ -22,7 +22,7 @@ namespace Project_1.Controllers
             return View();
         }
 
-        public IActionResult AddForm()
+        public IActionResult TaskForm()
         {
             return View();
         }
