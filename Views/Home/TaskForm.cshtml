@@ -7,17 +7,20 @@
 
 @model Project_1.Models.Task
 
-@*Form for user to fill out*@
-
+<!--Form for user to fill out-->
 <br/>
 <div>
     <form method="post">
+
+        <!-- Add Task Name-->
         <label asp-for="TaskName">Task:</label>
-        <input asp-for="TaskName" class="boxwidth"/><br />
+        <input asp-for="TaskName" class="boxwidth" /><br />
 
+        <!-- Add Due Date-->
         <label asp-for="DueDate">Due Date:</label>
-        <input asp-for="DueDate" class="boxwidth"/><br />
+        <input asp-for="DueDate" class="boxwidth" /><br />
 
+        <!-- Add Quadrant-->
         <label asp-for="Quadrant">Quadrant:</label>
         <select asp-for="Quadrant" class="boxwidth">
             <option value="">Select an Option</option>
@@ -27,6 +30,7 @@
             <option value="4">Not Urgent/Not Important</option>
         </select><br />
 
+        <!-- Add Category-->
         <label asp-for="CategoryId">Category:</label>
         <select asp-for="CategoryId" class="boxwidth">
             <option value="">Select a Category</option>
@@ -37,16 +41,19 @@
 
         </select><br />
 
+        <!-- Add Completed(Y/N)-->
         <label asp-for="Completed">Completed?</label>
         <select asp-for="Completed" class="boxwidth">
-            <option value=""></option>
+            <option value="">---</option>
             <option value="true">Yes</option>
             <option value="false">No</option>
         </select><br />
 
+        <!--submit button-->
         <button type="submit" class="boxwidth">Add Task</button>
 
-        @*Displays Validation Requirements*@
+        <!--Displays validation requirements-->
         <div asp-validation-summary="All"></div>
+
     </form>
 </div>
