@@ -21,7 +21,11 @@ namespace Project_1.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var tasks = Context.Tasks
+                .Include(x => x.Category)
+                .ToList();
+
+            return View(tasks);
         }
 
         [HttpGet]
