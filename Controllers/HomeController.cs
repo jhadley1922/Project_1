@@ -21,6 +21,7 @@ namespace Project_1.Controllers
 
         public IActionResult Index()
         {
+            // pulls in data to display Tasks and Categories
             var tasks = Context.Tasks
                 .Include(x => x.Category)
                 .ToList();
@@ -59,6 +60,7 @@ namespace Project_1.Controllers
         {
             ViewBag.Categories = Context.Categories.ToList();
 
+            // Get the TaskId of the selected Task from the database
             var task = Context.Tasks.Single(x => x.TaskId == TaskId);
 
             return RedirectToAction("TaskForm", task);
