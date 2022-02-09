@@ -42,31 +42,100 @@
                         <div class="col-3">@task.DueDate</div>
                         <div class="col-2">@task.Category.CategoryName</div>
                         <div class="col-3">
-                            <a class="fa fa-check-square-o btn btn-primary p-1" style="background-color:forestgreen;border-color:black;"></a>
-                            <a class="fa fa-pencil-square-o btn btn-primary p-1" style="background-color: #ffd500; border-color: black;"></a>
-                            <a class="fa fa-trash-o btn btn-primary p-1" style="background-color: red; border-color: black;"></a>
+                            <a asp-controller="Home" asp-action="Complete" asp-route-TaskId="@task.TaskId" class="fa fa-check-square-o btn btn-primary p-1" style="background-color: green; border-color: black; color: white;"></a>
+                            <a asp-controller="Home" asp-action="Edit" asp-route-TaskId="@task.TaskId"class="fa fa-pencil-square-o btn btn-primary p-1" style="background-color: #ffd500; border-color: black; color: black;"></a>
+                            <a asp-controller="Home" asp-action="Delete" asp-route-TaskId="@task.TaskId"class="fa fa-trash-o btn btn-primary p-1" style="background-color: red; border-color: black; color: black;"></a>
                         </div>
                     </div>
                 }
             }
         </div>
         </div>
-    <div class="col-5 border-bottom border-right text-center font-weight-bold">
-        Quadrant 2
-        <table>&nbsp;</table>
-        <br />
+    <div class="col-5 border-bottom border-right text-center p-0 m-0">
+        <p class="font-weight-bold" style="text-decoration:underline;">Quadrant 2</p>
+        <div class="container table table-striped">
+            <div class="row font-weight-bold">
+                <div class="col-4">Task</div>
+                <div class="col-3">Due Date</div>
+                <div class="col-2">Category</div>
+                <div class="col-3"></div>
+            </div>
+            @foreach (var task in Model)
+            {
+                @if ((task.Quadrant == 2) && (task.Completed == false))
+                {
+                    <br />
+                    <div class="row">
+                        <div class="col-4">@task.TaskName</div>
+                        <div class="col-3">@task.DueDate</div>
+                        <div class="col-2">@task.Category.CategoryName</div>
+                        <div class="col-3">
+                            <a asp-controller="Home" asp-action="Complete" asp-route-TaskId="@task.TaskId" class="fa fa-check-square-o btn btn-primary p-1" style="background-color: green; border-color: black; color: white;"></a>
+                            <a asp-controller="Home" asp-action="Edit" asp-route-TaskId="@task.TaskId" class="fa fa-pencil-square-o btn btn-primary p-1" style="background-color: #ffd500; border-color: black; color: black;"></a>
+                            <a asp-controller="Home" asp-action="Delete" asp-route-TaskId="@task.TaskId" class="fa fa-trash-o btn btn-primary p-1" style="background-color: red; border-color: black; color: black;"></a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
     </div>
 </div>
 <div class="row">
     <div class="col-2 border-bottom border-left border-right text-right"><h5>Not Important</h5></div>
-    <div class="col-5 border-bottom border-right text-center font-weight-bold">
-        Quadrant 3
-        <table>&nbsp;</table>
-        <br /><br /><br />
+    <div class="col-5 border-bottom border-right text-center p-0 m-0">
+        <p class="font-weight-bold" style="text-decoration:underline;">Quadrant 3</p>
+        <div class="container table table-striped">
+            <div class="row font-weight-bold">
+                <div class="col-4">Task</div>
+                <div class="col-3">Due Date</div>
+                <div class="col-2">Category</div>
+                <div class="col-3"></div>
+            </div>
+            @foreach (var task in Model)
+            {
+                @if ((task.Quadrant == 3) && (task.Completed == false))
+                {
+                    <br />
+                    <div class="row">
+                        <div class="col-4">@task.TaskName</div>
+                        <div class="col-3">@task.DueDate</div>
+                        <div class="col-2">@task.Category.CategoryName</div>
+                        <div class="col-3">
+                            <a asp-controller="Home" asp-action="Complete" asp-route-TaskId="@task.TaskId" class="fa fa-check-square-o btn btn-primary p-1" style="background-color: green; border-color: black; color: white;"></a>
+                            <a asp-controller="Home" asp-action="Edit" asp-route-TaskId="@task.TaskId" class="fa fa-pencil-square-o btn btn-primary p-1" style="background-color: #ffd500; border-color: black; color: black;"></a>
+                            <a asp-controller="Home" asp-action="Delete" asp-route-TaskId="@task.TaskId" class="fa fa-trash-o btn btn-primary p-1" style="background-color: red; border-color: black; color: black;"></a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
     </div>
-    <div class="col-5 border-bottom border-right text-center font-weight-bold">
-        Quadrant 4
-        <table>&nbsp;</table>
-        <br /><br /><br />
+    <div class="col-5 border-bottom border-right text-center p-0 m-0">
+        <p class="font-weight-bold" style="text-decoration:underline;">Quadrant 4</p>
+        <div class="container table table-striped">
+            <div class="row font-weight-bold">
+                <div class="col-4">Task</div>
+                <div class="col-3">Due Date</div>
+                <div class="col-2">Category</div>
+                <div class="col-3"></div>
+            </div>
+            @foreach (var task in Model)
+            {
+                @if ((task.Quadrant == 4) && (task.Completed == false))
+                {
+                    <br />
+                    <div class="row">
+                        <div class="col-4">@task.TaskName</div>
+                        <div class="col-3">@task.DueDate</div>
+                        <div class="col-2">@task.Category.CategoryName</div>
+                        <div class="col-3">
+                            <a asp-controller="Home" asp-action="Complete" asp-route-TaskId="@task.TaskId" class="fa fa-check-square-o btn btn-primary p-1" style="background-color: green; border-color: black; color: white;"></a>
+                            <a asp-controller="Home" asp-action="Edit" asp-route-TaskId="@task.TaskId" class="fa fa-pencil-square-o btn btn-primary p-1" style="background-color: #ffd500; border-color: black; color: black;"></a>
+                            <a asp-controller="Home" asp-action="Delete" asp-route-TaskId="@task.TaskId" class="fa fa-trash-o btn btn-primary p-1" style="background-color: red; border-color: black; color: black;"></a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
     </div>
 </div>

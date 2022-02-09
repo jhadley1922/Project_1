@@ -63,7 +63,7 @@ namespace Project_1.Controllers
             // Get the TaskId of the selected Task from the database
             var task = Context.Tasks.Single(x => x.TaskId == TaskId);
 
-            return RedirectToAction("TaskForm", task);
+            return View("TaskForm", task);
         }
 
         [HttpPost]
@@ -85,13 +85,27 @@ namespace Project_1.Controllers
 
         }
 
-        [HttpPost]
-        public IActionResult Delete(Models.Task t)
+        [HttpGet]
+        public IActionResult Delete(int TaskId)
         {
-            Context.Tasks.Remove(t);
+            var task = Context.Tasks.Single(x => x.TaskId == TaskId);
+            Context.Tasks.Remove(task);
             Context.SaveChanges();
 
             return RedirectToAction("Index");
         }
+
+
+        [HttpGet]
+        public IActionResult Complete(int TaskId)
+        {
+            var task = Context.Tasks.Single(x => x.TaskId == TaskId);
+            task.Completed = true;
+            Context.Update(task);
+            Context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
     }
 }
