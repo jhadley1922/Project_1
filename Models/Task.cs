@@ -11,8 +11,10 @@ namespace Project_1.Models
     public class Task
     {
         [Key]
-        [Required]
+        [Required(ErrorMessage ="Please enter a task name.")]
         public int TaskId { get; set; }
+
+        [Required]
         public string TaskName { get; set; }
         public string DueDate { get; set; }
         [Required(ErrorMessage = "Please select a quadrant.")]
