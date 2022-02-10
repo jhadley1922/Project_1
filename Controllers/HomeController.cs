@@ -51,7 +51,7 @@ namespace Project_1.Controllers
             {
                 ViewBag.Categories = Context.Categories.ToList();
 
-                return RedirectToAction("TaskForm", tk);
+                return View("TaskForm", tk);
             }
         }
 
@@ -80,7 +80,7 @@ namespace Project_1.Controllers
             {
                 ViewBag.Categories = Context.Categories.ToList();
 
-                return RedirectToAction("TaskForm", t);
+                return View("TaskForm", t);
             }
 
         }
